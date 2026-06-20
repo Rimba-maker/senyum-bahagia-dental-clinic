@@ -1,0 +1,74 @@
+---
+const rows = [
+  { treatment: 'Konsultasi & Rontgen', price: 'Gratis – Rp 250k', note: 'Gratis untuk first-time patient' },
+  { treatment: 'Scaling 2 Rahang', price: 'Rp 350k – 500k', note: '' },
+  { treatment: 'Tambal Gigi (Composite)', price: 'Rp 350k – 750k', note: 'Per gigi' },
+  { treatment: 'Cabut Gigi (Non-bedah)', price: 'Rp 250k – 500k', note: '' },
+  { treatment: 'Cabut Geraham Bungsu', price: 'Rp 1.5 – 3 jt', note: 'Per gigi, tergantung kompleksitas' },
+  { treatment: 'Root Canal (Per Gigi)', price: 'Rp 1.5 – 3.5 jt', note: 'Tergantung jumlah saluran' },
+  { treatment: 'Crown Porcelain', price: 'Rp 3 – 5 jt', note: 'Per gigi' },
+  { treatment: 'Behel Metal', price: 'Rp 8 – 12 jt', note: 'Termasuk kontrol 18 bulan' },
+  { treatment: 'Damon / Self-Ligating', price: 'Rp 13 – 18 jt', note: '' },
+  { treatment: 'Invisalign', price: 'Rp 30 – 80 jt', note: 'Tergantung kompleksitas kasus' },
+  { treatment: 'Implant Single', price: 'Rp 12 – 25 jt', note: 'Per implant, all-in' },
+  { treatment: 'Veneer Porcelain', price: 'Rp 4 – 8 jt', note: 'Per gigi' },
+  { treatment: 'Bleaching In-Office', price: 'Rp 1.5 – 3 jt', note: '1 sesi' },
+];
+---
+
+<section id="harga" class="bg-[#EBE7E1] py-20 lg:py-28">
+  <div class="max-w-[1280px] mx-auto px-6 lg:px-10">
+
+    <!-- Header -->
+    <div class="text-center mb-12">
+      <span class="inline-block text-xs font-semibold tracking-widest uppercase text-[#0B9FAA] bg-[#E0F5F7] px-4 py-1.5 rounded-full mb-4">
+        Harga
+      </span>
+      <h2 class="font-display font-bold text-[#1A2E35] mb-3 leading-tight" style="font-size: clamp(28px, 4vw, 40px)">
+        Referensi Harga
+      </h2>
+      <p class="font-body text-[#4A5A60] text-base max-w-xl mx-auto">
+        Pricing indikatif. Konsultasi awal <span class="font-semibold text-[#0B9FAA]">gratis</span> untuk diagnosis & estimasi akurat.
+      </p>
+    </div>
+
+    <!-- Table -->
+    <div class="bg-white rounded-2xl border border-[#D6E4E6] shadow-[0_0_0.5px_rgba(10,61,69,0.08),_0_2px_8px_rgba(10,61,69,0.06)] overflow-hidden">
+      <!-- Header row -->
+      <div class="grid grid-cols-[1fr_auto_auto] lg:grid-cols-[1fr_200px_240px] bg-[#0A3D45] px-6 py-4">
+        <span class="font-display font-semibold text-white text-sm">Treatment</span>
+        <span class="font-display font-semibold text-white text-sm text-right">Rentang Harga</span>
+        <span class="hidden lg:block font-display font-semibold text-white text-sm text-right">Catatan</span>
+      </div>
+
+      <!-- Body rows -->
+      {rows.map((row, i) => (
+        <div
+          class={`grid grid-cols-[1fr_auto] lg:grid-cols-[1fr_200px_240px] px-6 py-4 border-b border-[#EBF4F5] last:border-0 hover:bg-[#E0F5F7] transition-colors duration-150 ${i % 2 === 0 ? 'bg-white' : 'bg-[#F5F1EC]'}`}
+        >
+          <span class="font-body font-medium text-[#1A2E35] text-sm">{row.treatment}</span>
+          <span class="font-body font-semibold text-[#0B9FAA] text-sm text-right whitespace-nowrap">{row.price}</span>
+          <span class="hidden lg:block font-body text-[#8A9EA5] text-xs text-right self-center">{row.note}</span>
+        </div>
+      ))}
+    </div>
+
+    <!-- Notes -->
+    <div class="flex flex-wrap gap-3 justify-center mt-8">
+      <span class="inline-flex items-center gap-2 bg-amber-100 text-[#F5A623] font-semibold text-sm px-4 py-2 rounded-full border border-amber-200">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="1" y="4" width="22" height="16" rx="2"/>
+          <line x1="1" y1="10" x2="23" y2="10"/>
+        </svg>
+        Cicilan 0% 6 bulan (BCA & Mandiri)
+      </span>
+      <span class="inline-flex items-center gap-2 bg-green-100 text-[#2EB87A] font-semibold text-sm px-4 py-2 rounded-full border border-green-200">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+        </svg>
+        BPJS untuk treatment dasar
+      </span>
+    </div>
+
+  </div>
+</section>
