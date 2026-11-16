@@ -1,0 +1,28 @@
+---
+const testimonials = [
+  { quote: 'Saya phobia dokter gigi sejak kecil. drg. Andre sabar banget, kasih sedasi sadar untuk extraction geraham bungsu. Sekarang gak takut lagi ke dokter gigi.', name: 'Maya', age: '28 tahun', treatment: 'Oral Surgery + Sedasi' },
+  { quote: 'Anak saya 5 tahun nangis setiap ke dokter gigi. Di sini ada playground, dokter giginya playful banget — anak jadi mau bahkan minta balik lagi.', name: 'Bu Sari', age: 'Ibu pasien anak', treatment: 'Pediatric Dentistry' },
+  { quote: 'Pasang behel di sini 18 bulan, sekarang gigi rapi banget. Worth it banget, dokter ortonya selalu jelas explain progresnya di setiap kontrol.', name: 'Andini', age: '23 tahun', treatment: 'Ortodonti Behel' },
+  { quote: 'Implant single tooth setelah cabut geraham bungsu. Prosesnya minim nyeri, hasilnya natural banget. Sudah 2 tahun tidak ada masalah sama sekali.', name: 'Pak Bambang', age: '52 tahun', treatment: 'Dental Implant' },
+];
+const [lead, ...rest] = testimonials;
+---
+
+<section id="testimoni" class="band band--ink">
+  <div class="container">
+    <h2 class="visually-hidden">Cerita Senyum Pasien Kami</h2>
+    <figure style="margin:0 0 var(--space-2xl)">
+      <blockquote class="quote-main" style="margin:0">{lead.quote}</blockquote>
+      <figcaption class="quote-by">{lead.name}, {lead.age}, {lead.treatment}</figcaption>
+    </figure>
+
+    <div class="quotes">
+      {rest.map((t) => (
+        <figure class="quote">
+          <blockquote>{t.quote}</blockquote>
+          <figcaption>{t.name}, {t.age}, {t.treatment}</figcaption>
+        </figure>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,37 @@
+---
+import { img } from '../../lib/img';
+const techs = [
+  { name: 'Digital X-Ray', desc: '80% kurang radiasi dibanding X-Ray konvensional. Hasil instan, akurat, aman.', badge: '80% less radiation' },
+  { name: 'Intraoral Scanner', desc: 'Tidak perlu cetakan gigi yang tidak nyaman. Scan digital 3D dalam 2 menit.', badge: 'No impression needed' },
+  { name: 'Laser Dentistry', desc: 'Treatment gusi dan whitening lebih cepat, presisi, dan minim nyeri tanpa pisau bedah.', badge: 'Minim nyeri' },
+  { name: 'Sedasi Sadar', desc: 'Conscious sedation untuk pasien dental phobia atau prosedur panjang. Tetap sadar, tetap nyaman.', badge: 'Dental phobia friendly' },
+  { name: 'CAD/CAM Same-Day Crown', desc: 'Crown jadi dalam 1 kunjungan dengan teknologi digital milling. Tidak perlu bolak-balik.', badge: 'Selesai 1 hari' },
+];
+---
+
+<section id="teknologi" class="band band--ink">
+  <div class="container">
+    <div class="tech__top">
+      <h2>Teknologi Modern, Treatment Presisi</h2>
+      <p class="lead muted">Peralatan terkini untuk hasil terbaik dan pengalaman yang lebih nyaman.</p>
+    </div>
+
+    <div class="tech__photos">
+      <figure class="a photo" data-slot="tech-scanner" data-alt="Dokter gigi dan pasien melihat hasil scan 3D gigi di monitor" style="margin:0">
+        <img src={img('tech-scanner')} alt="Hasil scan gigi 3D ditampilkan di monitor saat konsultasi" width="1200" height="800" loading="lazy" />
+      </figure>
+      <figure class="b photo" data-slot="tech-xray" data-alt="Rontgen digital gigi di tablet" style="margin:0">
+        <img src={img('tech-xray')} alt="Rontgen digital gigi di layar tablet" width="1200" height="800" loading="lazy" style="--pos: 30% 50%" />
+      </figure>
+      <figure class="c photo" data-slot="tech-cad" data-alt="Dokter gigi membaca hasil CT dan panoramik di komputer" style="margin:0">
+        <img src={img('tech-cad')} alt="Dokter gigi menganalisis CT dan rontgen panoramik di komputer" width="1200" height="800" loading="lazy" style="--pos: 50% 30%" />
+      </figure>
+    </div>
+
+    <ul class="tech__list">
+      {techs.map((t) => (
+        <li><h3>{t.name}</h3><p>{t.desc}</p><span class="tag">{t.badge}</span></li>
+      ))}
+    </ul>
+  </div>
+</section>

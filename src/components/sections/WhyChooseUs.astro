@@ -1,0 +1,43 @@
+---
+import { img } from '../../lib/img';
+const reasons = [
+  { title: 'Dental Phobia Friendly', desc: 'Tim kami terlatih khusus untuk pasien yang takut ke dokter gigi. Kami sabar, tidak pernah terburu-buru.' },
+  { title: 'Painless Procedure', desc: 'Anestesi modern + sedasi sadar tersedia untuk prosedur kompleks. Tidak perlu menahan rasa sakit.' },
+  { title: 'Family-Friendly', desc: 'Dokter gigi anak bersertifikat, ruang tunggu dengan playground, dan pendekatan yang menyenangkan untuk si kecil.' },
+  { title: 'Sterilisasi Hospital-Grade', desc: 'Autoclave 121°C dan single-use items untuk setiap prosedur. Higienitas setara standar rumah sakit.' },
+  { title: 'Cicilan 0% Tersedia', desc: 'Treatment di atas Rp 5 jt bisa dicicil 0% 6 bulan via Mandiri & BCA credit card. Senyum sehat, dompet tetap aman.' },
+  { title: 'English & Mandarin Speaking', desc: 'Tersedia dokter gigi yang fasih berbahasa Inggris dan Mandarin untuk pasien asing & ekspat di Jakarta.' },
+];
+---
+
+<section id="keunggulan" class="band band--3">
+  <div class="container">
+    <div class="head">
+      <h2>Kenapa Pasien Pilih Kami</h2>
+      <p class="lead">Bukan sekadar klinik, kami partner kesehatan gigi keluarga Anda.</p>
+    </div>
+
+    <div class="why">
+      <div class="why__pics">
+        <figure class="big photo" data-slot="why-family" data-alt="Keluarga merawat gigi bersama di kamar mandi rumah" style="margin:0">
+          <img src={img('why-family')} alt="Ayah mengajari anak menyikat gigi di depan cermin" width="1200" height="800" loading="lazy" style="--pos: 50% 35%" />
+        </figure>
+        <figure class="sq photo" data-slot="why-kid" data-alt="Anak tersenyum sambil menyikat gigi" style="margin:0">
+          <img src={img('why-kid')} alt="Anak tersenyum memegang sikat gigi" width="1000" height="1000" loading="lazy" />
+        </figure>
+        <figure class="sq photo" data-slot="why-explain" data-alt="Dokter gigi menjelaskan kepada pasien remaja dengan tenang" style="margin:0">
+          <img src={img('why-explain')} alt="Dokter gigi menjelaskan perawatan kepada pasien remaja" width="1000" height="1000" loading="lazy" style="--pos: 55% 50%" />
+        </figure>
+        <figure class="sq photo" data-slot="why-smile" data-alt="Pasien tersenyum lega sambil memegang cermin" style="margin:0">
+          <img src={img('why-smile')} alt="Pasien tersenyum sambil memegang cermin di kursi gigi" width="1000" height="1000" loading="lazy" style="--pos: 40% 50%" />
+        </figure>
+      </div>
+
+      <ul class="why__list">
+        {reasons.map((r) => (
+          <li><h3>{r.title}</h3><p>{r.desc}</p></li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</section>

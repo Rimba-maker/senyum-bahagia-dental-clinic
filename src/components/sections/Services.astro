@@ -1,0 +1,42 @@
+---
+import { img } from '../../lib/img';
+const services = [
+  { id: 'general', name: 'General Dentistry', items: ['Pemeriksaan rutin & scaling', 'Tambal gigi composite', 'Pencabutan gigi'], price: 'Mulai Rp 250k', image: 'svc-general', alt: 'Dokter gigi memeriksa pasien di kursi klinik', c: 't-thu' },
+  { id: 'cosmetic', name: 'Cosmetic Dentistry', items: ['Veneer porcelain & composite', 'Bleaching / whitening', 'Smile makeover'], price: 'Mulai Rp 1.5 jt', image: 'svc-cosmetic', alt: 'Wanita tersenyum memperlihatkan gigi putih', c: 't-sun' },
+  { id: 'ortho', name: 'Orthodontic (Behel)', items: ['Behel metal & ceramic', 'Damon system', 'Invisalign / clear aligner'], price: 'Mulai Rp 8 jt', image: 'svc-ortho', alt: 'Dokter gigi memperlihatkan model rahang kepada pasien', c: 't-sat' },
+  { id: 'endo', name: 'Endodontic (Root Canal)', items: ['Perawatan saraf gigi', 'Pasak & inlay', 'Rotary endodontic system'], price: 'Mulai Rp 2 jt', image: 'svc-endo', alt: 'Rontgen panoramik gigi di layar tablet', c: 't-fri' },
+  { id: 'perio', name: 'Periodontic (Gusi)', items: ['Treatment gusi bengkak', 'Bedah periodontal', 'Bone grafting'], price: 'Mulai Rp 1.5 jt', image: 'svc-perio', alt: 'Pemeriksaan gigi dan gusi dengan kaca mulut', c: 't-mon' },
+  { id: 'prostho', name: 'Prosthodontic', items: ['Crown & bridge', 'Denture (lepasan)', 'All-on-4 / all-on-6 implant'], price: 'Mulai Rp 3 jt', image: 'svc-prostho', alt: 'Model implan gigi dalam potongan rahang', c: 't-tue' },
+  { id: 'surgery', name: 'Oral Surgery', items: ['Pencabutan gigi bungsu', 'Implant gigi', 'Cyst removal'], price: 'Mulai Rp 2 jt', image: 'svc-surgery', alt: 'Dokter gigi menunjukkan hasil rontgen kepada pasien', c: 't-wed' },
+  { id: 'pediatric', name: 'Pediatric Dentistry', items: ['Khusus anak 3–12 tahun', 'Fluoride & sealant', 'Ruang tunggu khusus anak'], price: 'Mulai Rp 200k', image: 'svc-pediatric', alt: 'Dokter gigi memeriksa gigi anak laki-laki', c: 't-thu' },
+];
+---
+
+<section id="layanan" class="band">
+  <div class="container">
+    <div class="head">
+      <h2>Layanan Lengkap Untuk Senyum Anda</h2>
+      <p class="lead">Dari pemeriksaan rutin sampai smile makeover, semua di bawah satu atap.</p>
+    </div>
+
+    <div class="svc">
+      {services.map((s) => (
+        <article class={`plastic svc__card ${s.c}`} id={s.id}>
+          <div class="photo" data-slot={`svc-${s.id}`} data-alt={s.alt}>
+            <img src={img(s.image)} alt={s.alt} width="800" height="600" loading="lazy" />
+          </div>
+          <div class="svc__body">
+            <h3>{s.name}</h3>
+            <ul>{s.items.map((i) => <li>{i}</li>)}</ul>
+            <span class="svc__price">{s.price}</span>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <div class="after">
+      <p>Tidak yakin treatment mana yang tepat?</p>
+      <a href="#booking" class="btn btn--primary">Konsultasi Gratis Dulu</a>
+    </div>
+  </div>
+</section>

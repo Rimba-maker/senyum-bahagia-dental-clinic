@@ -1,0 +1,21 @@
+---
+import { img } from '../../lib/img';
+import BookingForm from './BookingForm';
+---
+
+<section id="booking" class="band band--3">
+  <div class="container">
+    <div class="book">
+      <div class="book__side">
+        <h2>Buat Janji Sekarang</h2>
+        <p class="lead">Pilih dokter, jadwal, dan cabang yang sesuai. Konfirmasi dalam 1 jam kerja.</p>
+        <figure class="photo" data-slot="booking" data-alt="Pasien tersenyum lega memegang cermin setelah perawatan" style="margin:0">
+          <img src={img('booking')} alt="Pasien tersenyum lega memegang cermin setelah perawatan gigi" width="1200" height="800" loading="lazy" style="--pos: 45% 40%" />
+        </figure>
+      </div>
+      <div class="book__form">
+        <BookingForm client:idle />
+      </div>
+    </div>
+  </div>
+</section>

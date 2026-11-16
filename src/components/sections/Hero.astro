@@ -1,0 +1,53 @@
+---
+import { img } from '../../lib/img';
+const facts = [
+  { n: '5.000+', t: 'Pasien Bahagia', c: 't-mon' },
+  { n: '20+', t: 'Dokter Spesialis', c: 't-tue' },
+  { n: '5', t: 'Cabang Jabodetabek', c: 't-wed' },
+  { n: 'BPJS', t: 'Friendly', c: 't-thu' },
+];
+const routes = [
+  { id: 'appointment', title: 'Buat Janji Online', desc: 'Pilih dokter & jadwal yang sesuai. Konfirmasi dalam 1 jam kerja.', cta: 'Book Sekarang', href: '#booking', c: 't-fri' },
+  { id: 'emergency', title: 'Emergency Gigi', desc: 'Sakit gigi mendadak? Walk-in same day tersedia di semua cabang.', cta: 'Hubungi Sekarang', href: 'https://wa.me/6281234567890', c: 't-mon' },
+  { id: 'checkup', title: 'Pemeriksaan Rutin', desc: 'MCU gigi setiap 6 bulan. Cegah masalah sebelum jadi lebih besar.', cta: 'Jadwalkan MCU', href: '#booking', c: 't-sat' },
+];
+---
+
+<section id="beranda" class="hero">
+  <div class="hero__light" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+  <div class="container">
+    <div class="hero__grid">
+      <div class="hero__head">
+        <h1>Pulihkan senyum yang hilang. Tanpa rasa takut.</h1>
+        <p class="lead">Klinik gigi modern dengan digital scanner, sedasi sadar, dan dokter yang sabar.</p>
+        <div class="hero__cta">
+          <a href="#booking" class="btn btn--primary">Book Konsultasi Gratis</a>
+          <a href="#layanan" class="btn">Lihat Treatment</a>
+        </div>
+      </div>
+      <figure class="hero__photo photo" data-slot="hero" data-alt="Dokter gigi dan pasien anak tersenyum dengan jempol di kursi klinik" style="margin:0">
+        <img src={img('hero')} alt="Pasien kecil mengacungkan jempol bersama dokter gigi di Senyum Bahagia Dental Clinic" width="1600" height="1067" fetchpriority="high" />
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="container">
+    <div class="tray" role="list" aria-label="Senyum Bahagia dalam angka">
+      {facts.map((f) => (
+        <div class={`plastic ${f.c}`} role="listitem"><strong>{f.n}</strong><span>{f.t}</span></div>
+      ))}
+    </div>
+
+    <div class="routes">
+      {routes.map((r) => (
+        <div class={`plastic route ${r.c}`} id={r.id}>
+          <h3>{r.title}</h3>
+          <p>{r.desc}</p>
+          <a class="link" href={r.href} {...(r.href.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}>{r.cta}</a>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

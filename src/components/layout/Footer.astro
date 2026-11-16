@@ -1,12 +1,10 @@
 ---
-import { InstagramLogo, TiktokLogo, YoutubeLogo, WhatsappLogo, Envelope, MapPin, Clock } from '@phosphor-icons/react';
-
+import { url } from '../../lib/img';
 const services = [
   'General Dentistry', 'Cosmetic Dentistry', 'Orthodontic (Behel)',
   'Endodontic (Root Canal)', 'Periodontic (Gusi)', 'Prosthodontic (Gigi Palsu)',
   'Oral Surgery', 'Pediatric Dentistry',
 ];
-
 const branches = [
   { name: 'Kelapa Gading', address: 'Jakarta Utara' },
   { name: 'Kuningan', address: 'Jakarta Selatan' },
@@ -16,135 +14,57 @@ const branches = [
 ];
 ---
 
-<footer class="bg-[#0A3D45]">
-  <div class="max-w-[1280px] mx-auto px-6 lg:px-10 py-16">
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-
-      <!-- Col 1: Brand -->
-      <div class="flex flex-col gap-5">
-        <a href="/" class="flex items-center gap-2.5 no-underline w-fit">
-          <svg width="36" height="36" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect width="48" height="48" rx="12" fill="rgba(255,255,255,0.08)"/>
-            <path fill="#4AABB5" fill-rule="evenodd" clip-rule="evenodd" d="M24 8c-3.5 0-6.5 1.5-8 4-1 1.8-1 3.8-.5 6l2 9c.4 2 1.5 3 2.5 3s1.8-.8 2-2.5l1-5 1 5c.2 1.7 1 2.5 2 2.5s2.1-1 2.5-3l2-9c.5-2.2.5-4.2-.5-6-1.5-2.5-4.5-4-8-4z"/>
+<footer class="foot" id="lokasi">
+  <div class="container">
+    <div class="foot__grid">
+      <div class="stack">
+        <a href={url('/')} class="brand">
+          <svg width="26" height="30" viewBox="12 6 24 28" fill="currentColor" aria-hidden="true" style="color: var(--color-accent-soft)">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M24 8c-3.5 0-6.5 1.5-8 4-1 1.8-1 3.8-.5 6l2 9c.4 2 1.5 3 2.5 3s1.8-.8 2-2.5l1-5 1 5c.2 1.7 1 2.5 2 2.5s2.1-1 2.5-3l2-9c.5-2.2.5-4.2-.5-6-1.5-2.5-4.5-4-8-4z"/>
           </svg>
-          <div class="flex flex-col leading-none">
-            <span class="font-display font-bold text-[#4AABB5] text-lg">Senyum Bahagia</span>
-            <span class="font-body text-white/60 text-xs">Dental Clinic</span>
-          </div>
+          <span><b>Senyum Bahagia</b><small class="sub">Dental Clinic</small></span>
         </a>
+        <p class="sub">Setiap senyum, masa depan yang lebih percaya diri.</p>
+        <ul>
+          <li><a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+          <li><a href="#" target="_blank" rel="noopener noreferrer">TikTok</a></li>
+          <li><a href="#" target="_blank" rel="noopener noreferrer">YouTube</a></li>
+        </ul>
+        <p class="sub">PDGI Member, BPJS Friendly</p>
+      </div>
 
-        <p class="font-body text-white/60 text-sm italic leading-relaxed">
-          "Setiap senyum, masa depan yang lebih percaya diri."
+      <div>
+        <h3>Layanan</h3>
+        <ul>{services.map((s) => <li><a href="#layanan">{s}</a></li>)}</ul>
+      </div>
+
+      <div>
+        <h3>Cabang</h3>
+        <ul>{branches.map((b) => <li>{b.name}<span class="sub" style="display:block">{b.address}</span></li>)}</ul>
+        <p class="sub" style="margin-top: var(--space-md)">
+          Jam operasional<br />
+          Senin – Sabtu: 09:00 – 21:00<br />
+          Minggu: 10:00 – 18:00
         </p>
-
-        <!-- Sosmed -->
-        <div class="flex items-center gap-3">
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"
-            class="w-9 h-9 rounded-full bg-white/10 hover:bg-[#0B9FAA] flex items-center justify-center transition-colors duration-200"
-            aria-label="Instagram">
-            <InstagramLogo size={16} color="white" weight="fill" />
-          </a>
-          <a href="#" target="_blank" rel="noopener noreferrer"
-            class="w-9 h-9 rounded-full bg-white/10 hover:bg-[#0B9FAA] flex items-center justify-center transition-colors duration-200"
-            aria-label="TikTok">
-            <TiktokLogo size={15} color="white" weight="fill" />
-          </a>
-          <a href="#" target="_blank" rel="noopener noreferrer"
-            class="w-9 h-9 rounded-full bg-white/10 hover:bg-[#0B9FAA] flex items-center justify-center transition-colors duration-200"
-            aria-label="YouTube">
-            <YoutubeLogo size={17} color="white" weight="fill" />
-          </a>
-        </div>
-
-        <div class="flex flex-wrap gap-2 mt-1">
-          <span class="text-xs font-semibold text-white/60 border border-white/20 px-3 py-1 rounded-full">PDGI Member</span>
-          <span class="text-xs font-semibold text-white/60 border border-white/20 px-3 py-1 rounded-full">BPJS Friendly</span>
-        </div>
       </div>
 
-      <!-- Col 2: Layanan -->
       <div>
-        <h3 class="font-display font-semibold text-white text-sm uppercase tracking-widest mb-5">Layanan</h3>
-        <ul class="flex flex-col gap-3">
-          {services.map((s) => (
-            <li>
-              <a href="#layanan" class="font-body text-white/60 text-sm hover:text-white transition-colors no-underline">
-                {s}
-              </a>
-            </li>
-          ))}
+        <h3>Kontak</h3>
+        <ul>
+          <li><a href="https://wa.me/6281234567890" target="_blank" rel="noopener noreferrer">WhatsApp</a><span class="sub" style="display:block">0812-3456-7890</span></li>
+          <li><a href="mailto:halo@senyumbahagia.id">Email</a><span class="sub" style="display:block">halo@senyumbahagia.id</span></li>
         </ul>
-      </div>
-
-      <!-- Col 3: Cabang -->
-      <div>
-        <h3 class="font-display font-semibold text-white text-sm uppercase tracking-widest mb-5">Cabang</h3>
-        <ul class="flex flex-col gap-3">
-          {branches.map((b) => (
-            <li class="flex items-start gap-2">
-              <MapPin size={14} color="#4AABB5" weight="fill" className="mt-0.5 flex-shrink-0" />
-              <div>
-                <span class="font-body font-medium text-white/80 text-sm">{b.name}</span>
-                <span class="font-body text-white/45 text-xs block">{b.address}</span>
-              </div>
-            </li>
-          ))}
-        </ul>
-        <div class="mt-5 p-3 rounded-xl bg-white/5 border border-white/10">
-          <div class="flex items-center gap-2 mb-1">
-            <Clock size={13} color="#4AABB5" weight="bold" />
-            <span class="text-[#4AABB5] font-semibold text-xs">Jam Operasional</span>
-          </div>
-          <p class="font-body text-white/60 text-xs leading-relaxed">
-            Senin – Sabtu: 09:00 – 21:00<br/>
-            Minggu: 10:00 – 18:00
-          </p>
-        </div>
-      </div>
-
-      <!-- Col 4: Kontak -->
-      <div>
-        <h3 class="font-display font-semibold text-white text-sm uppercase tracking-widest mb-5">Kontak</h3>
-        <div class="flex flex-col gap-4">
-          <a href="https://wa.me/6281234567890" target="_blank" rel="noopener noreferrer"
-            class="flex items-center gap-3 no-underline group">
-            <div class="w-9 h-9 rounded-full bg-[#2EB87A]/20 flex items-center justify-center flex-shrink-0">
-              <WhatsappLogo size={16} color="#2EB87A" weight="fill" />
-            </div>
-            <div>
-              <span class="font-body text-white/80 text-sm group-hover:text-white transition-colors">WhatsApp</span>
-              <span class="font-body text-white/45 text-xs block">0812-3456-7890</span>
-            </div>
-          </a>
-
-          <div class="flex items-center gap-3">
-            <div class="w-9 h-9 rounded-full bg-[#0B9FAA]/20 flex items-center justify-center flex-shrink-0">
-              <Envelope size={16} color="#0B9FAA" weight="fill" />
-            </div>
-            <div>
-              <span class="font-body text-white/80 text-sm">Email</span>
-              <span class="font-body text-white/45 text-xs block">halo@senyumbahagia.id</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="mt-6 p-4 rounded-xl bg-[#F5A623]/10 border border-[#F5A623]/20">
-          <p class="font-body text-[#F5A623] text-xs font-semibold mb-1">🚨 Emergency Gigi?</p>
-          <p class="font-body text-white/60 text-xs leading-relaxed">Walk-in same day tersedia di semua cabang. Hubungi kami segera.</p>
-        </div>
+        <p class="sub" style="margin-top: var(--space-md)">Walk-in same day tersedia di semua cabang. Hubungi kami segera.</p>
       </div>
     </div>
-  </div>
 
-  <div class="border-t border-white/10">
-    <div class="max-w-[1280px] mx-auto px-6 lg:px-10 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
-      <p class="font-body text-white/40 text-xs text-center sm:text-left">
-        © 2024 Senyum Bahagia Dental Clinic. Semua hak dilindungi.
-      </p>
-      <div class="flex items-center gap-4">
-        <a href="#" class="font-body text-white/40 text-xs hover:text-white/70 transition-colors no-underline">Kebijakan Privasi</a>
-        <a href="#" class="font-body text-white/40 text-xs hover:text-white/70 transition-colors no-underline">Syarat & Ketentuan</a>
-      </div>
+    <div class="foot__base">
+      <p>© 2024 Senyum Bahagia Dental Clinic. Semua hak dilindungi.</p>
+      <nav aria-label="Legal">
+        <a href="#">Kebijakan Privasi</a>
+        <a href="#">Syarat & Ketentuan</a>
+      </nav>
     </div>
+    <p class="sub" data-credits style="margin-top: var(--space-md); font-size: var(--text-xs)">Foto: Pexels (lisensi bebas pakai). Foto sementara, ganti dengan foto klinik sendiri.</p>
   </div>
 </footer>

@@ -1,0 +1,44 @@
+---
+import { img } from '../../lib/img';
+const steps = [
+  { n: '1', title: 'Book Online / Walk-in', desc: 'Pilih dokter & jadwal favorit Anda secara online, atau langsung datang ke cabang terdekat.', c: 't-mon' },
+  { n: '2', title: 'Konsultasi & Anamnesa', desc: 'Dokter mendengarkan keluhan Anda, riwayat medis, dan menjawab semua pertanyaan dengan sabar.', c: 't-wed' },
+  { n: '3', title: 'Pemeriksaan & X-Ray', desc: 'Pemeriksaan klinis menyeluruh + rontgen digital jika diperlukan. Aman, cepat, dan minim radiasi.', c: 't-thu' },
+  { n: '4', title: 'Treatment Plan', desc: 'Dokter menjelaskan diagnosis, semua opsi treatment, timeline, dan estimasi biaya secara transparan.', c: 't-fri' },
+];
+const tips = [
+  'Bawa kartu identitas (KTP / Paspor)',
+  'Sikat gigi sebelum datang',
+  'Untuk pasien BPJS: bawa rujukan dari FKTP',
+  'Kosongkan waktu 30–60 menit untuk konsultasi pertama',
+  'Boleh ajak keluarga / pendamping jika perlu',
+];
+---
+
+<section id="pasien-baru" class="band">
+  <div class="container">
+    <div class="head"><h2>Begini Prosesnya</h2></div>
+
+    <div class="first">
+      <ol class="steps">
+        {steps.map((s) => (
+          <li class={`plastic ${s.c}`}>
+            <span class="n">{s.n}</span>
+            <div><h3>{s.title}</h3><p>{s.desc}</p></div>
+          </li>
+        ))}
+      </ol>
+
+      <aside class="first__side">
+        <figure class="photo" data-slot="first-plan" data-alt="Dokter gigi menjelaskan rencana perawatan dengan tablet kepada pasien" style="margin:0">
+          <img src={img('first-plan')} alt="Dokter gigi menjelaskan rencana perawatan dengan tablet kepada pasien" width="1400" height="933" loading="lazy" />
+        </figure>
+        <div class="stack">
+          <h3>Tips Persiapan</h3>
+          <ul class="tips">{tips.map((t) => <li>{t}</li>)}</ul>
+          <a href="#booking" class="btn btn--primary">Book Konsultasi Pertama</a>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>

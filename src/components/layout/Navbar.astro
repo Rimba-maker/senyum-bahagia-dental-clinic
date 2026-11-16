@@ -1,4 +1,5 @@
 ---
+import { url } from '../../lib/img';
 const navLinks = [
   { label: 'Layanan', href: '#layanan' },
   { label: 'Dokter', href: '#dokter' },
@@ -8,126 +9,30 @@ const navLinks = [
 ];
 ---
 
-<header
-  id="navbar"
-  class="fixed top-0 left-0 right-0 z-50 bg-[#F5F1EC] transition-shadow duration-300"
->
-  <div class="max-w-[1280px] mx-auto px-6 lg:px-10">
-    <div class="flex items-center justify-between h-[72px]">
+<header class="nav" id="navbar">
+  <div class="container nav__row">
+    <a href={url('/')} class="brand">
+      <svg width="26" height="30" viewBox="12 6 24 28" fill="currentColor" aria-hidden="true">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M24 8c-3.5 0-6.5 1.5-8 4-1 1.8-1 3.8-.5 6l2 9c.4 2 1.5 3 2.5 3s1.8-.8 2-2.5l1-5 1 5c.2 1.7 1 2.5 2 2.5s2.1-1 2.5-3l2-9c.5-2.2.5-4.2-.5-6-1.5-2.5-4.5-4-8-4z"/>
+      </svg>
+      <span><b>Senyum Bahagia</b><small>Dental Clinic</small></span>
+    </a>
 
-      <!-- Logo -->
-      <a href="/" class="flex items-center gap-2.5 no-underline">
-        <svg width="34" height="34" viewBox="0 0 48 48" fill="#0B9FAA" xmlns="http://www.w3.org/2000/svg">
-          <rect width="48" height="48" rx="12" fill="#E0F5F7"/>
-          <!-- Healthicons Tooth path simplified -->
-          <path fill="#0B9FAA" fill-rule="evenodd" clip-rule="evenodd" d="M24 8c-3.5 0-6.5 1.5-8 4-1 1.8-1 3.8-.5 6l2 9c.4 2 1.5 3 2.5 3s1.8-.8 2-2.5l1-5 1 5c.2 1.7 1 2.5 2 2.5s2.1-1 2.5-3l2-9c.5-2.2.5-4.2-.5-6-1.5-2.5-4.5-4-8-4z"/>
-        </svg>
-        <div class="flex flex-col leading-none">
-          <span class="font-display font-bold text-[#0B9FAA] text-lg tracking-tight">Senyum Bahagia</span>
-          <span class="font-body text-[#4A5A60] text-xs">Dental Clinic</span>
-        </div>
-      </a>
+    <nav class="nav__links" aria-label="Utama">
+      {navLinks.map((l) => <a href={l.href}>{l.label}</a>)}
+    </nav>
 
-      <!-- Desktop Nav -->
-      <nav class="hidden lg:flex items-center gap-8" aria-label="Navigasi utama">
-        {navLinks.map((link) => (
-          <a
-            href={link.href}
-            class="font-body font-medium text-[#1A2E35] text-sm hover:text-[#0B9FAA] transition-colors duration-200 no-underline"
-          >
-            {link.label}
-          </a>
-        ))}
-      </nav>
-
-      <!-- CTA -->
-      <div class="hidden lg:flex items-center gap-3">
-        <a
-          href="#booking"
-          class="inline-flex items-center gap-2 bg-[#0B9FAA] text-white font-semibold text-sm px-6 py-2.5 rounded-full hover:bg-[#0A3D45] transition-colors duration-200 active:scale-[0.97] no-underline"
-        >
-          <!-- Phosphor CalendarBlank (inline SVG) -->
-          <svg width="15" height="15" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true">
-            <path d="M208,32H184V24a8,8,0,0,0-16,0v8H88V24a8,8,0,0,0-16,0v8H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V48A16,16,0,0,0,208,32ZM208,208H48V48H72v8a8,8,0,0,0,16,0V48h80v8a8,8,0,0,0,16,0V48h24Z"/>
-          </svg>
-          Book Appointment
-        </a>
-      </div>
-
-      <!-- Mobile Hamburger -->
-      <button
-        id="menu-btn"
-        class="lg:hidden flex flex-col gap-1.5 p-2 rounded-lg hover:bg-[#E0F5F7] transition-colors"
-        aria-label="Buka menu"
-        aria-expanded="false"
-        aria-controls="mobile-menu"
-      >
-        <span class="w-5 h-0.5 bg-[#1A2E35] transition-all duration-300 origin-center" id="line1"></span>
-        <span class="w-5 h-0.5 bg-[#1A2E35] transition-all duration-300" id="line2"></span>
-        <span class="w-5 h-0.5 bg-[#1A2E35] transition-all duration-300 origin-center" id="line3"></span>
-      </button>
+    <div class="nav__cta">
+      <a href="#booking" class="btn btn--primary btn--sm">Book Appointment</a>
+      <details class="nav__menu" id="mobile-menu">
+        <summary aria-label="Menu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </summary>
+        <nav aria-label="Menu seluler">
+          {navLinks.map((l) => <a href={l.href}>{l.label}</a>)}
+          <a href="#booking" class="btn btn--primary">Book Appointment</a>
+        </nav>
+      </details>
     </div>
   </div>
-
-  <!-- Mobile Menu -->
-  <div
-    id="mobile-menu"
-    class="lg:hidden hidden bg-[#F5F1EC] border-t border-[#D6E4E6] px-6 pb-6"
-    role="navigation"
-  >
-    <nav class="flex flex-col gap-4 pt-5">
-      {navLinks.map((link) => (
-        <a href={link.href} class="font-body font-medium text-[#1A2E35] text-base hover:text-[#0B9FAA] transition-colors py-1 no-underline">
-          {link.label}
-        </a>
-      ))}
-    </nav>
-    <a href="#booking" class="mt-5 flex items-center justify-center gap-2 bg-[#0B9FAA] text-white font-semibold text-base px-6 py-3 rounded-full hover:bg-[#0A3D45] transition-colors no-underline">
-      Book Appointment
-    </a>
-  </div>
 </header>
-
-<div class="h-[72px]" aria-hidden="true"></div>
-
-<script>
-  const navbar = document.getElementById('navbar')!;
-  const menuBtn = document.getElementById('menu-btn')!;
-  const mobileMenu = document.getElementById('mobile-menu')!;
-  const line1 = document.getElementById('line1')!;
-  const line2 = document.getElementById('line2')!;
-  const line3 = document.getElementById('line3')!;
-
-  window.addEventListener('scroll', () => {
-    navbar.style.boxShadow = window.scrollY > 20
-      ? '0 1px 3px rgba(10,61,69,0.08), 0 2px 2px rgba(10,61,69,0.05)'
-      : 'none';
-  });
-
-  let isOpen = false;
-  menuBtn.addEventListener('click', () => {
-    isOpen = !isOpen;
-    menuBtn.setAttribute('aria-expanded', String(isOpen));
-    mobileMenu.classList.toggle('hidden', !isOpen);
-    if (isOpen) {
-      line1.style.transform = 'translateY(8px) rotate(45deg)';
-      line2.style.opacity = '0';
-      line3.style.transform = 'translateY(-8px) rotate(-45deg)';
-    } else {
-      line1.style.transform = '';
-      line2.style.opacity = '';
-      line3.style.transform = '';
-    }
-  });
-
-  mobileMenu.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      isOpen = false;
-      menuBtn.setAttribute('aria-expanded', 'false');
-      mobileMenu.classList.add('hidden');
-      line1.style.transform = '';
-      line2.style.opacity = '';
-      line3.style.transform = '';
-    });
-  });
-</script>

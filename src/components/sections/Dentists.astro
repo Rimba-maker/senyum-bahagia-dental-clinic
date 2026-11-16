@@ -1,0 +1,31 @@
+---
+const dentists = [
+  { name: 'drg. Sari Wulandari, Sp.KGA', specialty: 'Gigi Anak (Pediatric)', schedule: 'Senin, Rabu, Jumat', c: 't-mon' },
+  { name: 'drg. Bayu Pratama, Sp.Ort', specialty: 'Ortodonti (Behel)', schedule: 'Selasa, Kamis, Sabtu', c: 't-tue' },
+  { name: 'drg. Rina Setiawati, Sp.KG', specialty: 'Konservasi & Root Canal', schedule: 'Senin – Jumat', c: 't-wed' },
+  { name: 'drg. Daniel Hartono, Sp.BM', specialty: 'Bedah Mulut', schedule: 'Selasa, Kamis', c: 't-thu' },
+  { name: 'drg. Nina Wijaya, Sp.Pros', specialty: 'Prostodonti & Implant', schedule: 'Senin, Rabu, Sabtu', c: 't-fri' },
+  { name: 'drg. Andre Kusuma', specialty: 'Cosmetic Dentistry', schedule: 'Setiap hari kecuali Minggu', c: 't-sat' },
+  { name: 'drg. Maya Indriani, Sp.Perio', specialty: 'Periodonti (Gusi)', schedule: 'Rabu, Jumat, Sabtu', c: 't-sun' },
+  { name: 'drg. Reza Hartanto', specialty: 'General, English Speaking', schedule: 'Senin – Sabtu', c: 't-thu' },
+];
+---
+
+<section id="dokter" class="band">
+  <div class="container">
+    <div class="head">
+      <h2>Tim Dokter Gigi Kami</h2>
+      <p class="lead">Bersertifikat, berpengalaman, dan sabar, bahkan dengan pasien yang takut.</p>
+    </div>
+    <ul class="roster">
+      {dentists.map((d) => (
+        <li class={`plastic ${d.c}`}>
+          <h3>{d.name}</h3>
+          <span class="tag">{d.specialty}</span>
+          <span class="when">{d.schedule}</span>
+          <a href="#booking" class="link">Book dokter ini</a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>

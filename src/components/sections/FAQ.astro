@@ -1,0 +1,31 @@
+---
+const faqs = [
+  { q: 'Apakah cabut gigi itu sakit?', a: 'Dengan anestesi lokal modern, prosedur pencabutan hampir tidak terasa nyeri sama sekali. Mungkin ada sedikit tekanan, tapi tidak ada rasa sakit yang signifikan. Untuk pasien yang sangat cemas, sedasi sadar tersedia.' },
+  { q: 'Behel / kawat gigi dipasang berapa lama?', a: 'Rata-rata 18–24 bulan, tergantung kompleksitas kasus. Damon system (self-ligating) bisa lebih cepat 6–12 bulan dibanding behel konvensional. Invisalign bervariasi dari 6 bulan hingga 2 tahun.' },
+  { q: 'Apakah bleaching aman untuk gigi?', a: 'Bleaching yang dilakukan oleh dokter gigi profesional sangat aman. Yang perlu dihindari adalah produk bleaching dari pasar atau home-kit tanpa pengawasan dokter, karena konsentrasinya tidak terkontrol dan bisa merusak email gigi.' },
+  { q: 'Implant atau gigi palsu lepasan, mana yang lebih baik?', a: 'Implant lebih natural, permanen, dan tidak mempengaruhi gigi tetangga — tapi memerlukan investasi lebih besar. Gigi palsu lepasan lebih terjangkau tapi perlu dirawat ekstra. Konsultasikan dengan dokter prostodonti kami untuk rekomendasi yang paling sesuai kondisi Anda.' },
+  { q: 'Anak umur berapa sebaiknya pertama ke dokter gigi?', a: 'Idealnya saat gigi pertama tumbuh, sekitar usia 1 tahun. Kunjungan pertama ini untuk pemeriksaan, edukasi kebersihan gigi, dan membiasakan anak dengan suasana klinik — bukan untuk langsung treatment. Lebih awal lebih baik.' },
+  { q: 'Apakah BPJS bisa digunakan di sini?', a: 'Ya, kami BPJS friendly. BPJS menanggung treatment dasar seperti scaling sederhana, pencabutan, dan tambal gigi. Treatment seperti behel, veneer, implant, dan bleaching tidak ditanggung BPJS dan merupakan biaya pribadi. Bawa rujukan dari FKTP untuk treatment BPJS.' },
+  { q: 'Apakah bisa cicilan untuk treatment besar?', a: 'Bisa! Tersedia cicilan 0% hingga 6 bulan via Mandiri dan BCA credit card untuk treatment di atas Rp 5 juta. Hubungi kami untuk informasi lebih lengkap tentang opsi pembayaran.' },
+];
+---
+
+<section id="faq" class="band band--2">
+  <div class="container">
+    <div class="faq">
+      <div class="faq__side">
+        <h2>Pertanyaan Sering Ditanyain</h2>
+        <p>Masih ada pertanyaan?</p>
+        <a href="https://wa.me/6281234567890" target="_blank" rel="noopener noreferrer" class="btn btn--primary">Tanya via WhatsApp</a>
+      </div>
+      <div class="faq__list">
+        {faqs.map((f, i) => (
+          <details open={i === 0}>
+            <summary>{f.q}</summary>
+            <p>{f.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
